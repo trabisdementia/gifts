@@ -1,0 +1,19 @@
+<{if $item}>
+<img src="<{$smarty.const.GIFTS_URL}>/images/gifts/big/<{$item.gift_image_url}>" alt='' />
+<div class="alert alert-info">
+<{$item.gift_price}> <{$smarty.const._GIFTS_SCREDITS}>
+</div>
+
+<{if $credits >= $item.gift_price}>
+<{$form}>
+<{else}>
+<{$smarty.const._GIFTS_NO_CREDITS}>
+<{/if}>
+
+<br>
+<{$youhave}>
+<br>
+<{if $get_credits_url}>
+<a href="<{$get_credits_url}>"><{$smarty.const._GIFTS_GET_CREDITS_HERE}></a>
+<{/if}>
+<{/if}>

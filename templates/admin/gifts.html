@@ -1,0 +1,26 @@
+<h2><{$smarty.const._GIFTS_ADMENU_GIFTS }> (<{$count}>)</h2>
+
+<table cellspacing="1" class="outer width100">
+    <tr>
+        <th><{$smarty.const._CO_GIFTS_OBJ_ID}></th>
+        <th><{$smarty.const._CO_GIFTS_OBJ_IMAGE_URL}></th>
+        <th><{$smarty.const._CO_GIFTS_OBJ_TITLE}></th>
+        <th><{$smarty.const._CO_GIFTS_OBJ_DESCRIPTION}></th>
+        <th><{$smarty.const._CO_GIFTS_OBJ_PRICE}></th>
+        <th><{$smarty.const._GIFTS_ACTION}></th>
+    </tr>
+    <{foreach item=item from=$items}>
+    <tr class="<{cycle values='even,odd'}>">
+        <td class="txtcenter"><{$item.gift_id}></td>
+        <td class="txtcenter"><img src="<{$gifts_url}>/images/gifts/small/<{$item.gift_image_url}>" width="30px" /></td>
+        <td class="txtcenter"><{$item.gift_title}></td>
+        <td class="txtcenter"><{$item.gift_description}></td>
+        <td class="txtcenter"><{$item.gift_price}></td>
+        <td class="txtcenter">
+            <a href="<{$url}>?gift_id=<{$item.gift_id}>>"><{$smarty.const._GIFTS_EDIT}></a> - <a href="<{$url}>?action=delete_confirm&amp;gift_id=<{$item.gift_id}>"><{$smarty.const._GIFTS_DELETE}></a>
+        </td>
+    </tr>
+    <{/foreach}>
+</table>
+<div align='right'><{$pagenav}></div>
+<div align='right'><{$form}></div>

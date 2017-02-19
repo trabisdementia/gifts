@@ -1,0 +1,48 @@
+<{if $action == 'received'}>
+    <div style="float:right;">
+        <a href="<{$gifts_sent}>"><{$smarty.const._GIFTS_SENT}></a>
+        - <a href="<{$gifts_url}>"><{$smarty.const._GIFTS_SEND_GIFT}></a>
+    </div>
+    <h2><{$smarty.const._GIFTS_RECEIVED}> (<{$count}>)</h2>
+<{else}>
+    <div style="float:right;">
+        <a href="<{$gifts_received}>"><{$smarty.const._GIFTS_RECEIVED}></a>
+        | <a href="<{$smarty.const.GIFTS_URL}>"><{$smarty.const._GIFTS_SEND_GIFT}></a>
+    </div>
+    <h2><{$smarty.const._GIFTS_SENT}> (<{$count}>)</h2>
+<{/if}>
+<{if $items}>
+<table cellspacing="1" class="outer width100">
+    <tr>
+        <th><{$smarty.const._CO_GIFTS_OBJ_GID}></th>
+        <th><{$smarty.const._CO_GIFTS_OBJ_TITLE}></th>
+        <{if $action == 'received'}>
+        <th><{$smarty.const._CO_GIFTS_OBJ_SUID}></th>
+        <{else}>
+        <th><{$smarty.const._CO_GIFTS_OBJ_RUID}></th>
+        <{/if}>
+        <th class="txtright"><{$smarty.const._CO_GIFTS_OBJ_CREATED}></th>
+    </tr>
+    <{foreach item=item from=$items}>
+    <tr class="<{cycle values='even,odd'}>">
+        <td><img src="<{$smarty.const.GIFTS_URL}>/images/gifts/small/<{$item.log_image_url}>" alt="" /></td>
+        <td><{$item.log_title}></td>
+        <{if $action == 'received'}>
+        <td><{$item.log_sname}></td>
+        <{else}>
+        <td><{$item.log_rname}></td>
+        <{/if}>
+        <td class="txtright"><{$item.log_created}></td>
+    </tr>
+    <{/foreach}>
+</table>
+<{else}>
+<div class="alert alert-danger">
+    <{if $action == 'received'}>
+    <{$smarty.const._GIFTS_NO_GIFTS_RECEIVED}>
+    <{else}>
+    <{$smarty.const._GIFTS_NO_GIFTS_SENT}>
+    <{/if}>
+</div>
+<{/if}>
+<div align='right'><{$pagenav}></div>

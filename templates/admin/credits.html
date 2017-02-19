@@ -1,0 +1,18 @@
+<h2><{$smarty.const._GIFTS_ADMENU_CREDITS}> (<{$count}>)</h2>
+
+<table cellspacing="1" class="outer width100">
+    <tr>
+        <th><{$smarty.const._GIFTS_UNAME}></th>
+        <th><{$smarty.const._GIFTS_CREDITS}></th>
+        <th><{$smarty.const._GIFTS_ACTION}></th>
+    </tr>
+    <{foreach item=item from=$items}>
+    <tr class="<{cycle values='even,odd'}>">
+        <td class="txtcenter"><{$item.link}></td>
+        <td class="txtcenter"><{$item.credits}></td>
+        <td class="txtcenter"><a href="<{$url}>?uid=<{$item.uid}>#form"><{$smarty.const._GIFTS_CREDITS_FORM}></a></td>
+    </tr>
+    <{/foreach}>
+</table>
+<div align='right'><{$pagenav}></div>
+<div><{$form}></div>

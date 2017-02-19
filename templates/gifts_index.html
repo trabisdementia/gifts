@@ -1,0 +1,42 @@
+<div class="alert alert-info"><{$description}></div><br>
+<div style="float:right;">
+        <a href="<{$gifts_received}>"><{$smarty.const._GIFTS_RECEIVED}></a>
+        - <a href="<{$gifts_sent}>"><{$smarty.const._GIFTS_SENT}></a>
+</div>
+
+<{if $items}>
+<h2><{$smarty.const._GIFTS_GIFTS_LIST}> (<{$count}>)</h2>
+<table cellspacing="1" class="outer width100">
+    <tr>
+        <th><{$smarty.const._GIFTS_IMAGE}></th>
+        <th><{$smarty.const._CO_GIFTS_OBJ_TITLE}></th>
+        <th><{$smarty.const._CO_GIFTS_OBJ_DESCRIPTION}></th>
+        <th><{$smarty.const._CO_GIFTS_OBJ_PRICE}></th>
+        <th><{$smarty.const._GIFTS_ACTION}></th>
+    </tr>
+    <{foreach item=item from=$items}>
+    <tr class="<{cycle values='even,odd'}>">
+        <td><img src="<{$smarty.const.GIFTS_URL}>/images/gifts/small/<{$item.gift_image_url}>" alt=''/></td>
+        <td><{$item.gift_title}></td>
+        <td><{$item.gift_description}></td>
+        <td><{$item.gift_price}></td>
+        <td>
+            <{if $credits >= $item.gift_price}>
+            <a href="<{buildUrl route='gifts-index-offer-gift_id-uid' action='offer' gift_id=$item.gift_id uid=$uid}>"><{$smarty.const._GIFTS_OFFER}></a>
+            <{else}>
+            --
+            <{/if}>
+        </td>
+    </tr>
+    <{/foreach}>
+</table>
+<{else}>
+<div class="alert alert-danger"><{$smarty.const._GIFTS_NO_GIFTS}></div>
+<{/if}>
+<br>
+<br>
+<{$youhave}>
+<br>
+<{if $get_credits_url}>
+<a href="<{$get_credits_url}>"><{$smarty.const._GIFTS_GET_CREDITS_HERE}></a>
+<{/if}>

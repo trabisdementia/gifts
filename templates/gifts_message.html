@@ -1,0 +1,6 @@
+[img]<{$smarty.const.GIFTS_URL}>/images/gifts/big/<{$item.gift_image_url}>[/img]
+
+<{if $message}><{$message}><{else}><{$item.gift_description}><{/if}>
+
+
+[url=<{buildUrl route='gifts-index-uid' action='index' uid=$uid}>]<{$smarty.const._GIFTS_SEND_GIFT_TO}>[/url]

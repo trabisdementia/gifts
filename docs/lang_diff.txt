@@ -1,0 +1,8 @@
+LANGUAGE DIFFERENCES
+=====================
+
+Below are language differences from a version to next version.
+
+Version 0.1
+----------------
+No changes yet

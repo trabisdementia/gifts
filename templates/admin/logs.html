@@ -1,0 +1,21 @@
+<h2><{$smarty.const._GIFTS_ADMENU_GIFTS }> (<{$count}>)</h2>
+
+<table cellspacing="1" class="outer width100">
+    <tr>
+        <th><{$smarty.const._CO_GIFTS_OBJ_ID}></th>
+        <th><{$smarty.const._CO_GIFTS_OBJ_GID}></th>
+        <th><{$smarty.const._CO_GIFTS_OBJ_SUID}></th>
+        <th><{$smarty.const._CO_GIFTS_OBJ_RUID}></th>
+        <th><{$smarty.const._CO_GIFTS_OBJ_CREATED}></th>
+    </tr>
+    <{foreach item=item from=$items}>
+    <tr class="<{cycle values='even,odd'}>">
+        <td class="txtcenter"><{$item.log_id}></td>
+        <td class="txtcenter"><img src="<{$gifts_url}>/images/gifts/small/<{$item.log_image_url}>" width="30px" /></td>
+        <td class="txtcenter"><{$item.log_sname}></td>
+        <td class="txtcenter"><{$item.log_rname}></td>
+        <td class="txtcenter"><{$item.log_created}></td>
+    </tr>
+    <{/foreach}>
+</table>
+<div align='right'><{$pagenav}></div>

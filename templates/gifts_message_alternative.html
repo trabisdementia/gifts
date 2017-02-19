@@ -1,0 +1,7 @@
+<img src="<{$smarty.const.GIFTS_URL}>/images/gifts/big/<{$item.gift_image_url}>" alt='' />
+<div class="alert alert-warning">
+<{if $message}><{$message}><{else}><{$item.gift_description}><{/if}>
+</div>
+<hr>
+<a href="<{buildUrl module=$smarty.const.GIFTS_DIRNAME controller='index' action='index' gift_id=0 uid=$uid}>"><{$smarty.const._GIFTS_SEND_GIFT_TO}></a>
+<{$suser_link}>
